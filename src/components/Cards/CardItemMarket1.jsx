@@ -4,7 +4,7 @@ import React from 'react';
 const NET_LOGO  = { 'Mastercard Gold':'M', 'RuPay':'R', 'VISA Classic':'V', 'VISA Gold':'V', 'VISA Platinum':'V', 'Mastercard':'M' };
 const NET_COLOR = { 'Mastercard Gold':'#f59e0b', 'RuPay':'#22c55e', 'VISA Classic':'#60a5fa', 'VISA Gold':'#f59e0b', 'VISA Platinum':'#c4b5fd', 'Mastercard':'#f97316' };
 
-const CardItem = ({ card, onBuy }) => {
+const CardItemMarket1 = ({ card, onBuy }) => {
   const logo  = NET_LOGO[card.type]  || 'C';
   const color = NET_COLOR[card.type] || '#aaa';
 
@@ -65,4 +65,4 @@ const CardItem = ({ card, onBuy }) => {
   );
 };
 
-export default CardItem;
+export default CardItemMarket1;
