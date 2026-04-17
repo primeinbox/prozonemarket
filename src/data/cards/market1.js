@@ -1,4 +1,4 @@
-export const cards = [
+export const market1 = [
   { id:1,  type:'Mastercard',       num:'6745', limit:'$280',    expiry:'03/2029', price:600,  refundable:true  },
   { id:2,  type:'Mastercard',       num:'2665', limit:'$280',    expiry:'03/2029', price:600  },
   { id:3,  type:'Mastercard',       num:'4219', limit:'$266',    expiry:'03/2029', price:600  },

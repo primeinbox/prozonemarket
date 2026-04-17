@@ -1,7 +1,7 @@
 // PaymentModal.jsx
 import React, { useState, useEffect, useRef } from 'react';
 
-const UPI_ID = "gavifriend9@ptyes";
+const UPI_ID = "suryadeep01@fam";
 const TIMER_SECONDS = 895;
 const PROCESSING_SECONDS = 150; // 2.5 min processing wait
 
