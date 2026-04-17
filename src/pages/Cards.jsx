@@ -5,7 +5,7 @@ import CardItemMarket2 from "../components/Cards/CardItemMarket2";
 
 import { market1 } from "../data/cards/market1";
 import { market2 } from "../data/cards/market2";
-
+import PaymentModal from "../components/Cards/PaymentModal";
 
 const CATEGORIES = ["All","Mastercard Gold","RuPay","VISA Classic","VISA Gold","VISA Platinum","Mastercard"];
 const NAMES = ["Aman","Neon","Vikram","Rahul","Arjun","Dev","Sahil","Kabir","Rohan","Ankit","Harsh","Yash","Nikhil","Gaurav","Tushar","Varun","Shubham","Deepak","Faiz","Kunal"];
@@ -326,39 +326,6 @@ const CardItem = ({ card, onBuy }) => {
   );
 };
 
-// ─── PAYMENT MODAL ───────────────────────────────────────────────────────
-const PaymentModal = ({ isOpen, onClose, card }) => {
-  if (!isOpen || !card) return null;
-  return (
-    <div style={S.overlay} onClick={onClose}>
-      <div style={S.modalBox} onClick={e => e.stopPropagation()}>
-        <div style={S.modalHandle} />
-        <div style={{ fontSize: 15, fontWeight: 700, marginBottom: 4 }}>Confirm Purchase</div>
-        <div style={{ fontSize: 12, color: "#445", marginBottom: 16 }}>
-          {card.type} · ****{card.num}
-        </div>
-        <div style={{
-          fontSize: 30, fontWeight: 800, color: "#22c55e",
-          fontFamily: "'JetBrains Mono', monospace", marginBottom: 20,
-        }}>
-          ₹{card.price}
-        </div>
-        <div style={{ display: "flex", gap: 8 }}>
-          <button onClick={onClose} style={{
-            flex: 1, padding: "12px 0",
-            background: "#0d1020", border: "1px solid #1a1f3a", borderRadius: 10,
-            color: "#556", fontFamily: "inherit", fontSize: 13, fontWeight: 600, cursor: "pointer",
-          }}>Cancel</button>
-          <button onClick={onClose} style={{
-            flex: 2, padding: "12px 0",
-            background: "#22c55e", border: "none", borderRadius: 10,
-            color: "#000", fontFamily: "inherit", fontSize: 13, fontWeight: 800, cursor: "pointer",
-          }}>Buy Now</button>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 // ─── MAIN ────────────────────────────────────────────────────────────────
 const Cards = () => {
