@@ -58,7 +58,7 @@ const CardItemMarket2 = ({ card, onBuy }) => {
       }}>
         <div>
           <div style={{ fontSize: 9, color: '#444', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 2 }}>Limit</div>
-          <div style={{ fontSize: 12, fontWeight: 700, color: isSoldOut ? '#ccc' : '#22c55e' }}>{card.limit}</div>
+          <div style={{ fontSize: 12, fontWeight: 700, color: isSoldOut ? '#ccc' : '#22c55e' }}>₹{card.balance?.toLocaleString("en-IN")}</div>
         </div>
         <div>
           <div style={{ fontSize: 9, color: '#444', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 2 }}>Expiry</div>

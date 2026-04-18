@@ -5,7 +5,7 @@ import CardItemMarket2 from "../components/Cards/CardItemMarket2";
 
 import { market1 } from "../data/cards/market1";
 import { market2 } from "../data/cards/market2";
-import PaymentModal from "../components/Cards/PaymentModal";
+import PaymentModal from "../components/PaymentModal";
 
 const CATEGORIES = ["All","Mastercard Gold","RuPay","VISA Classic","VISA Gold","VISA Platinum","Mastercard"];
 const NAMES = ["Aman","Neon","Vikram","Rahul","Arjun","Dev","Sahil","Kabir","Rohan","Ankit","Harsh","Yash","Nikhil","Gaurav","Tushar","Varun","Shubham","Deepak","Faiz","Kunal"];
@@ -25,6 +25,10 @@ const PURCHASE_MSGS = [
 ];
 
 const rand = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const parseAmount = (val) => {
+  if (!val) return 0;
+  return Number(val.replace(/[^0-9]/g, "")); // ₹ $ remove
+};
 // ─── STYLES ─────────────────────────────────────────────────────────────
 const S = {
   app: {
@@ -344,18 +348,27 @@ const Cards = () => {
       })
     : data;
 
-   const normalized = filtered.map(c => ({
+const normalized = filtered.map(c => ({
   id: c.id,
   type: c.type,
 
-  // handle both formats
+  // last 4 digits ya pura number jo bhi ho data mein
   num: c.num || c.number || "0000",
-  balance: c.balance || c.limit || 0,
-  price: c.price,
 
+  // limit field — balance ya limit jo bhi available ho
+  limit: c.limit || (c.balance != null ? `₹${Number(c.balance).toLocaleString('en-IN')}` : "N/A"),
+
+  // balance alag rakhna chahte ho toh
+  balance: c.balance != null ? Number(c.balance) : parseAmount(c.limit),
+
+  expiry: c.expiry || c.exp || c.validity || "N/A",
+  price: c.price,
   tag: c.tag || "live",
-  market: market
-})); 
+  market: market,
+
+  // refundable field — data mein hai toh pass karo, nahi toh false
+  refundable: c.refundable || false,
+}));
 
 const openPayment = (card) => {
   setModal({ isOpen: true, card });

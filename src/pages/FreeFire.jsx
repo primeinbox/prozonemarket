@@ -4,7 +4,7 @@ import Hero from '../components/FreeFire/Hero';
 import AccountSection from '../components/FreeFire/AccountSection';
 import TopUpGrid from '../components/FreeFire/card/TopUpGrid';
 import BottomBar from '../components/FreeFire/card/BottomBar';
-import PaymentModal from '../components/FreeFire/card/PaymentModal';
+import PaymentModal from '../components/PaymentModal';
 import Footer from '../components/FreeFire/Footer';
 
 // ─────────────────────────────────────────────────────────────────────────────
