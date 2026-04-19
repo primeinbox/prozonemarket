@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useRequireAuth } from "../hooks/useRequireAuth";
 
 import CardItemMarket1 from "../components/Cards/CardItemMarket1";
 import CardItemMarket2 from "../components/Cards/CardItemMarket2";
@@ -333,6 +334,7 @@ const CardItem = ({ card, onBuy }) => {
 
 // ─── MAIN ────────────────────────────────────────────────────────────────
 const Cards = () => {
+  const requireAuth = useRequireAuth();
   const [market, setMarket] = useState("m1");
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
@@ -371,7 +373,7 @@ const normalized = filtered.map(c => ({
 }));
 
 const openPayment = (card) => {
-  setModal({ isOpen: true, card });
+  requireAuth(() => setModal({ isOpen: true, card }));
 };
 
   return (
