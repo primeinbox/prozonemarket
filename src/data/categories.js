@@ -5,7 +5,7 @@ import {
   AmazonIcon,
   FlipkartIcon,
   SheinIcon,
-} from "../components/Landing/icons/icons";
+} from "../components/Landing/icons/Icons";
 
 export const categories = [
   {
